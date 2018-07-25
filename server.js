@@ -36,3 +36,11 @@ connection.connect(function(err){
   if(err) throw err;
   console.log('Connect as id: '+ connection.threadId);
 });
+
+
+// POST
+app.get('/', function(req, res){
+  connection.query('SELECT * FROM movies;', function(err, data){
+    res.render('index',{movies:data});
+  });
+})
