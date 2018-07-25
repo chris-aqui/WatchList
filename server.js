@@ -38,9 +38,23 @@ connection.connect(function(err){
 });
 
 
-// POST
+
 app.get('/', function(req, res){
   connection.query('SELECT * FROM movies;', function(err, data){
     res.render('index',{movies:data});
   });
 })
+//
+app.post('/create', function(req,res){
+  connection.query('INSERT INTO movies (movie) VALUE (?);', [req.body.movie], function (err, result) {
+    if(err) throw err;
+    res.redirect('/');
+  })
+});
+//
+app.put('/update', function(req,res){
+  connection.query('UPDATE movies SET movie = ? WHERE id = ?;', [req.body.movie, req.body.id], function (err, result) {
+    if(err) throw err;
+    res.redirect('/');
+  })
+});

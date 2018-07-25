@@ -7,3 +7,17 @@
   </li>
   {{/each}}
 </ul>
+
+<h2>Add a Movie To Watch</h2>
+{{!-- the action will be /create which would be referced with the post res --}}
+<form action="/create" method="post">
+  <textarea name="movie" type="text"></textarea>
+  <button type="submit">Save Movie!</button>
+</form>
+
+<h2>Update a movie</h2>
+<form action="/update?_method=PUT" method="post">
+  <input type="text" name="id" placeholder="id">
+  <textarea name="movie" type="text" placeholder="What movie do you want to update"></textarea>
+  <button type="submit">Update Movie!</button>
+</form>
