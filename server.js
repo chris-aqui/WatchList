@@ -60,7 +60,7 @@ app.put('/update', function(req,res){
 });
 
 app.delete('/delete', function(req,res){
-  connection.query('DELETE FROM movies WHERE id=?:', [req.body.id], function(err, result){
+  connection.query('DELETE FROM movies WHERE id = ?;', [req.body.id], function(err, result){
     if(err) throw err;
     res.redirect('/');
   });
